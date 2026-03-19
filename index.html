@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urbano Rocha Filho — Currículo</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf8f5;
+    --surface: #ffffff;
+    --card: #f5f2ee;
+    --border: #e8e2d9;
+    --gold: #b8924a;
+    --gold-light: #d4a96a;
+    --gold-pale: #f0e6d3;
+    --deep: #1a1612;
+    --mid: #4a3f35;
+    --muted: #8a7d70;
+    --accent-blue: #3d6b8c;
+    --accent-sage: #5a7a5e;
+    --accent-rust: #9c4a2a;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+    --mono: 'DM Mono', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--deep);
+    font-family: var(--sans);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Elegant grain texture overlay */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0; opacity: 0.4;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    position: relative; z-index: 1;
+    padding: 64px 60px 0;
+    max-width: 1120px; margin: 0 auto;
+  }
+
+  .header-eyebrow {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0; animation: fadeUp 0.7s ease forwards;
+  }
+
+  .header-main {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: end;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    opacity: 0; animation: fadeUp 0.7s 0.1s ease forwards;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--gold);
+    display: block;
+    font-weight: 300;
+  }
+
+  .header-subtitle {
+    margin-top: 18px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    line-height: 2.2;
+    text-transform: uppercase;
+    opacity: 0; animation: fadeUp 0.7s 0.2s ease forwards;
+  }
+
+  /* Audio Button */
+  .audio-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 14px 24px;
+    border-radius: 50px;
+    box-shadow: 0 4px 24px rgba(184,146,74,0.35), 0 1px 3px rgba(184,146,74,0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+    white-space: nowrap;
+    opacity: 0; animation: fadeUp 0.7s 0.3s ease forwards;
+  }
+  .audio-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(184,146,74,0.45), 0 2px 8px rgba(184,146,74,0.3);
+  }
+  .audio-btn svg {
+    width: 18px; height: 18px;
+    flex-shrink: 0;
+  }
+  .audio-pulse {
+    display: flex; align-items: center; gap: 2px;
+  }
+  .audio-pulse span {
+    display: block; width: 3px; border-radius: 2px;
+    background: rgba(255,255,255,0.85);
+    animation: pulse-bar 1.1s ease-in-out infinite;
+  }
+  .audio-pulse span:nth-child(1) { height: 8px; animation-delay: 0s; }
+  .audio-pulse span:nth-child(2) { height: 14px; animation-delay: 0.15s; }
+  .audio-pulse span:nth-child(3) { height: 10px; animation-delay: 0.3s; }
+  .audio-pulse span:nth-child(4) { height: 16px; animation-delay: 0.1s; }
+  .audio-pulse span:nth-child(5) { height: 6px; animation-delay: 0.25s; }
+  @keyframes pulse-bar {
+    0%, 100% { transform: scaleY(0.5); opacity: 0.6; }
+    50% { transform: scaleY(1); opacity: 1; }
+  }
+
+  /* Contact strip */
+  .contact-strip {
+    margin-top: 36px;
+    padding: 20px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 36px;
+    flex-wrap: wrap;
+    opacity: 0; animation: fadeUp 0.7s 0.4s ease forwards;
+  }
+  .contact-item {
+    display: flex; align-items: center; gap: 8px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+  .contact-item a { color: var(--accent-blue); text-decoration: none; }
+  .contact-item a:hover { color: var(--gold); }
+  .contact-dot {
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--gold); opacity: 0.5;
+  }
+
+  /* ===== TABS ===== */
+  .tabs-wrapper {
+    position: relative; z-index: 1;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 60px;
+  }
+
+  .tabs-nav {
+    display: flex; gap: 0;
+    padding: 32px 0 0;
+    overflow-x: auto; scrollbar-width: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .tabs-nav::-webkit-scrollbar { display: none; }
+
+  .tab-btn {
+    background: none; border: none;
+    color: var(--muted);
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 10px 22px 12px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .tab-btn:hover { color: var(--deep); }
+  .tab-btn.active {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+    font-weight: 600;
+  }
+
+  .tab-content-area {
+    padding: 44px 0 60px;
+    min-height: 500px;
+  }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; animation: fadeUp 0.3s ease; }
+
+  /* ===== SECTION TITLES ===== */
+  .section-title {
+    font-family: var(--serif);
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-style: italic;
+  }
+  .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* ===== CARDS ===== */
+  .info-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 24px 26px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .info-card:hover {
+    border-color: var(--gold-pale);
+    box-shadow: 0 4px 24px rgba(184,146,74,0.08);
+  }
+  .info-card h3 {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--mid);
+    margin-bottom: 10px;
+    letter-spacing: 0.01em;
+  }
+  .info-card p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.9;
+  }
+
+  /* ===== BADGES ===== */
+  .badge-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .badge {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 11px;
+    border-radius: 2px;
+    border: 1px solid;
+  }
+  .badge-gold { border-color: rgba(184,146,74,0.4); color: var(--gold); background: rgba(184,146,74,0.06); }
+  .badge-blue { border-color: rgba(61,107,140,0.35); color: var(--accent-blue); background: rgba(61,107,140,0.05); }
+  .badge-sage { border-color: rgba(90,122,94,0.35); color: var(--accent-sage); background: rgba(90,122,94,0.05); }
+  .badge-rust { border-color: rgba(156,74,42,0.35); color: var(--accent-rust); background: rgba(156,74,42,0.05); }
+  .badge-muted { border-color: var(--border); color: var(--muted); }
+
+  /* ===== PLATFORMS HERO ===== */
+  .platforms-hero {
+    background: linear-gradient(135deg, var(--gold-pale) 0%, rgba(240,230,211,0.4) 100%);
+    border: 1px solid rgba(184,146,74,0.2);
+    border-radius: 3px;
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    position: relative; overflow: hidden;
+  }
+  .platforms-hero::before {
+    content: '"';
+    position: absolute;
+    right: 30px; top: -10px;
+    font-family: var(--serif);
+    font-size: 120px;
+    color: rgba(184,146,74,0.1);
+    line-height: 1;
+  }
+  .platforms-hero h2 {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+  .platforms-hero h2 em { font-style: italic; color: var(--gold); }
+  .platforms-hero p {
+    font-size: 13px;
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.8;
+  }
+
+  .platform-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 14px;
+    margin-top: 16px;
+  }
+  .platform-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 24px;
+    transition: all 0.25s;
+    position: relative; overflow: hidden;
+  }
+  .platform-card:hover {
+    border-color: rgba(184,146,74,0.4);
+    box-shadow: 0 6px 30px rgba(184,146,74,0.1);
+    transform: translateY(-2px);
+  }
+  .platform-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .platform-card:hover::after { transform: scaleX(1); }
+  .platform-icon {
+    width: 38px; height: 38px;
+    border-radius: 2px;
+    background: var(--gold-pale);
+    border: 1px solid rgba(184,146,74,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; margin-bottom: 14px;
+  }
+  .platform-card h4 {
+    font-family: var(--serif);
+    font-size: 15px; font-weight: 600;
+    margin-bottom: 8px; letter-spacing: 0.01em;
+    color: var(--mid);
+  }
+  .platform-card p { font-size: 12px; color: var(--muted); line-height: 1.75; }
+
+  /* ===== PROFILE ===== */
+  .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  /* ===== TIMELINE ===== */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: ''; position: absolute;
+    left: 5px; top: 8px; bottom: 0; width: 1px;
+    background: linear-gradient(to bottom, var(--gold), var(--border));
+  }
+  .timeline-item { position: relative; margin-bottom: 32px; }
+  .timeline-item::before {
+    content: ''; position: absolute;
+    left: -28px; top: 7px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    background: var(--bg);
+  }
+  .timeline-item h4 {
+    font-family: var(--serif);
+    font-size: 16px; font-weight: 600;
+    margin-bottom: 3px; color: var(--mid);
+  }
+  .timeline-item .period {
+    font-family: var(--mono);
+    font-size: 9px; color: var(--gold);
+    letter-spacing: 0.15em; margin-bottom: 7px; text-transform: uppercase;
+  }
+  .timeline-item p { font-size: 13px; color: var(--muted); line-height: 1.8; }
+
+  /* ===== LANGUAGES ===== */
+  .lang-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 10px; }
+  .lang-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 12px 16px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--mid);
+    display: flex; align-items: center; gap: 10px;
+    transition: border-color 0.2s;
+  }
+  .lang-item:hover { border-color: rgba(184,146,74,0.4); }
+  .lang-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+
+  /* ===== EDUCATION ===== */
+  .edu-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 18px 22px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 18px; align-items: center;
+    transition: border-color 0.2s;
+  }
+  .edu-item:hover { border-color: rgba(184,146,74,0.35); }
+  .edu-year {
+    font-family: var(--serif);
+    font-size: 22px; font-weight: 300;
+    color: var(--gold); text-align: center; line-height: 1;
+  }
+  .edu-item h4 { font-size: 13px; font-weight: 600; margin-bottom: 3px; color: var(--mid); }
+  .edu-item p { font-size: 12px; color: var(--muted); }
+
+  /* ===== DB GRID ===== */
+  .db-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    text-align: center;
+    padding: 40px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    position: relative; z-index: 1;
+    border-top: 1px solid var(--border);
+    max-width: 1120px; margin: 0 auto;
+  }
+  footer::before {
+    content: '✦';
+    display: block;
+    font-size: 14px;
+    color: var(--gold-light);
+    margin-bottom: 12px;
+    opacity: 0.6;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    header { padding: 40px 24px 0; }
+    .header-main { grid-template-columns: 1fr; gap: 24px; }
+    .tabs-wrapper { padding: 0 24px; }
+    .tab-content-area { padding: 28px 0 40px; }
+    .profile-grid, .db-grid { grid-template-columns: 1fr; }
+    .contact-strip { gap: 20px; }
+    .audio-btn { font-size: 11px; padding: 12px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-eyebrow">// Currículo Vitae &middot; Playbook Profissional</div>
+  <div class="header-main">
+    <div>
+      <h1>Urbano<br><em>Rocha Filho</em></h1>
+      <p class="header-subtitle">
+        Project Management &middot; Scrum Master &middot; Developer<br>
+        Psico-Oncologista &middot; Musicoterapeuta &middot; Atuante desde 1984
+      </p>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:flex-end; gap:16px;">
+      <a href="https://audiomack.com/infourbagp/song/info-curriculo-de-urbano-rocha-filho" target="_blank" rel="noopener" class="audio-btn">
+        <div class="audio-pulse">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        Áudio Apresentação
+      </a>
+    </div>
+  </div>
+  <div class="contact-strip">
+    <div class="contact-item"><span class="contact-dot"></span> Itabirito — MG, Brasil</div>
+    <div class="contact-item"><span class="contact-dot"></span> +55 (11) 97350-8763</div>
+    <div class="contact-item"><span class="contact-dot"></span> <a href="mailto:urbano@email.com">urbano@email.com</a></div>
+    <div class="contact-item"><span class="contact-dot"></span> Whatsapp Vivo</div>
+  </div>
+</header>
+
+<div class="tabs-wrapper">
+  <nav class="tabs-nav" id="tabsNav">
+    <button class="tab-btn active" data-tab="plataformas">⚡ Plataformas &amp; Dev</button>
+    <button class="tab-btn" data-tab="perfil">Perfil</button>
+    <button class="tab-btn" data-tab="experiencia">Experiência</button>
+    <button class="tab-btn" data-tab="linguagens">Linguagens</button>
+    <button class="tab-btn" data-tab="formacao">Formação</button>
+    <button class="tab-btn" data-tab="banco">Banco de Dados</button>
+  </nav>
+
+  <div class="tab-content-area">
+
+    <!-- PLATAFORMAS -->
+    <div id="tab-plataformas" class="tab-panel active">
+      <div class="platforms-hero">
+        <h2>Plataformas &amp; <em>Ferramentas</em></h2>
+        <p>Ecossistema completo de desenvolvimento e automação — de mainframes COBOL até IA generativa e sistemas autônomos modernos.</p>
+      </div>
+      <div class="section-title">Inteligência Artificial &amp; Automação</div>
+      <div class="platform-grid">
+        <div class="platform-card">
+          <div class="platform-icon">🤖</div>
+          <h4>Manus AI</h4>
+          <p>Desenvolvimento de sistemas autônomos, automação de tarefas, integração de APIs, PLN, geração de conteúdo multimídia (imagens, vídeos, áudio, fala) e construção de aplicações web e mobile.</p>
+          <div class="badge-row">
+            <span class="badge badge-sage">Autônomo</span>
+            <span class="badge badge-sage">APIs</span>
+            <span class="badge badge-sage">PLN</span>
+            <span class="badge badge-sage">Multimedia</span>
+          </div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-icon">🐍</div>
+          <h4>Python + IA</h4>
+          <p>Desenvolvimento com Python para automação, scripting e integração com ferramentas de IA. Curso concluído em 2025 via Udemy, com foco em aplicações práticas e UX.</p>
+          <div class="badge-row">
+            <span class="badge badge-sage">Python</span>
+            <span class="badge badge-sage">UX</span>
+            <span class="badge badge-sage">Automação</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title" style="margin-top:32px">IDEs &amp; Ambientes de Desenvolvimento</div>
+      <div class="platform-grid">
+        <div class="platform-card">
+          <div class="platform-icon">📝</div>
+          <h4>Visual Studio / VSCode</h4>
+          <p>IDE principal para projetos .NET, C# e Python. VSCode usado para desenvolvimento web moderno com extensões e integração de controle de versão.</p>
+          <div class="badge-row">
+            <span class="badge badge-blue">C#</span>
+            <span class="badge badge-blue">Python</span>
+            <span class="badge badge-blue">Web</span>
+          </div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-icon">☕</div>
+          <h4>Eclipse IDE</h4>
+          <p>Ambiente de desenvolvimento para Java e projetos multiplataforma. Utilizado em fases de desenvolvimento de sistemas enterprise.</p>
+          <div class="badge-row">
+            <span class="badge badge-blue">Java</span>
+            <span class="badge badge-blue">Enterprise</span>
+          </div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-icon">🐍</div>
+          <h4>PyCharm</h4>
+          <p>IDE especializada para desenvolvimento Python, com suporte avançado a debugging, testes e integração com frameworks modernos.</p>
+          <div class="badge-row">
+            <span class="badge badge-blue">Python</span>
+            <span class="badge badge-blue">Debug</span>
+          </div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-icon">🌐</div>
+          <h4>NetExpress / Flexus COBOL</h4>
+          <p>IDE especializada para modernização e customização de sistemas COBOL legados. Experiência sólida em conversão de sistemas para interface gráfica.</p>
+          <div class="badge-row">
+            <span class="badge badge-rust">COBOL</span>
+            <span class="badge badge-rust">Legado</span>
+            <span class="badge badge-rust">Migração</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title" style="margin-top:32px">Gestão &amp; Colaboração</div>
+      <div class="platform-grid">
+        <div class="platform-card">
+          <div class="platform-icon">📊</div>
+          <h4>MS Project + Mind Manager</h4>
+          <p>Planejamento e gerenciamento de projetos. Mind Manager para mapeamento mental estratégico; MS Project para cronogramas e WBS.</p>
+          <div class="badge-row">
+            <span class="badge badge-muted">PMI</span>
+            <span class="badge badge-muted">WBS</span>
+            <span class="badge badge-muted">Scrum</span>
+          </div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-icon">⚡</div>
+          <h4>Bitrix24</h4>
+          <p>Plataforma CRM e gestão de projetos ágeis. Utilizada para coordenação de times, automação de processos e comunicação corporativa.</p>
+          <div class="badge-row">
+            <span class="badge badge-muted">CRM</span>
+            <span class="badge badge-muted">Agile</span>
+          </div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-icon">📐</div>
+          <h4>Ferramentas de Modelagem</h4>
+          <p>Erwin, DBDesigner, Dia e Visio para modelagem de dados e diagramas de arquitetura. RPV para modelagem de processos corporativos.</p>
+          <div class="badge-row">
+            <span class="badge badge-muted">Erwin</span>
+            <span class="badge badge-muted">DBDesigner</span>
+            <span class="badge badge-muted">Dia</span>
+          </div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-icon">🚁</div>
+          <h4>DJI Drones</h4>
+          <p>Capacitação completa em drones DJI (2017). Utilizado em mapeamento geográfico de área de mineração na Mineradora Morro Azul — Pratápolis/MG.</p>
+          <div class="badge-row">
+            <span class="badge badge-rust">Mapeamento</span>
+            <span class="badge badge-rust">DJI</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title" style="margin-top:32px">Ambientes Operacionais</div>
+      <div class="badge-row">
+        <span class="badge badge-sage">Windows</span>
+        <span class="badge badge-sage">Linux</span>
+        <span class="badge badge-sage">Unix</span>
+        <span class="badge badge-blue">Cloud (Linux Fundamentals)</span>
+        <span class="badge badge-blue">SAP Business ONE (em curso)</span>
+        <span class="badge badge-rust">Mainframe (UNISYS / SID)</span>
+      </div>
+    </div>
+
+    <!-- PERFIL -->
+    <div id="tab-perfil" class="tab-panel">
+      <div class="section-title">Resumo Profissional</div>
+      <div class="profile-grid">
+        <div class="info-card" style="grid-column: 1/-1;">
+          <h3>Generalista com Visão Multidisciplinar</h3>
+          <p>Profissional com mais de 40 anos de atuação contínua em TI, iniciando em 1984 com mainframes COBOL. Transita com fluência entre gestão de projetos, desenvolvimento de software, saúde (Psico-Oncologia) e expressão artística (Musicoterapia). Perfil raro que combina profundidade técnica com habilidades humanas e estratégicas.</p>
+        </div>
+        <div class="info-card">
+          <h3>Core Skills</h3>
+          <div class="badge-row">
+            <span class="badge badge-sage">Scrum Master</span>
+            <span class="badge badge-sage">Project Management</span>
+            <span class="badge badge-sage">Gestão 3.0</span>
+            <span class="badge badge-blue">Indústria 4.0</span>
+            <span class="badge badge-blue">IA Aplicada</span>
+            <span class="badge badge-rust">COBOL Senior</span>
+          </div>
+        </div>
+        <div class="info-card">
+          <h3>Áreas de Atuação</h3>
+          <div class="badge-row">
+            <span class="badge badge-sage">Desenvolvimento</span>
+            <span class="badge badge-sage">Análise de Sistemas</span>
+            <span class="badge badge-blue">Psico-Oncologia</span>
+            <span class="badge badge-blue">Musicoterapia</span>
+            <span class="badge badge-rust">Marketing Digital</span>
+            <span class="badge badge-muted">Consultoria TI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPERIÊNCIA -->
+    <div id="tab-experiencia" class="tab-panel">
+      <div class="section-title">Histórico Profissional</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h4>Mineradora Morro Azul</h4>
+          <div class="period">2017 · Pratápolis — MG</div>
+          <p>Mapeamento com Drone DJI, criação do Departamento de Marketing, análise de processos e avaliação de softwares corporativos.</p>
+          <div class="badge-row" style="margin-top:8px">
+            <span class="badge badge-rust">Drone</span>
+            <span class="badge badge-rust">Marketing</span>
+            <span class="badge badge-rust">Análise</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <h4>Grupo Criar</h4>
+          <div class="period">Nov/2015 – Out/2016 · Ribeirão Preto — SP</div>
+          <p>Timer de Projetos e coordenação de produção. Implantação do modelo ágil Scrum. Análise e otimização de softwares e processos.</p>
+          <div class="badge-row" style="margin-top:8px">
+            <span class="badge badge-sage">Scrum</span>
+            <span class="badge badge-sage">Agile</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <h4>Megatron Informática (Autônomo)</h4>
+          <div class="period">Fev/2014 – Jul/2015 · Ribeirão Preto — SP</div>
+          <p>Modernização e customização de ERP em Flexus COBOL com NetExpress 3.1. Fábrica de software.</p>
+          <div class="badge-row" style="margin-top:8px">
+            <span class="badge badge-rust">COBOL</span>
+            <span class="badge badge-rust">ERP</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <h4>Interon Informática</h4>
+          <div class="period">Ago/2012 – Dez/2013 · São Paulo — SP</div>
+          <p>Suporte nível 4 em isCobol. Treinamento e consultoria em desenvolvimento e customização de sistemas.</p>
+          <div class="badge-row" style="margin-top:8px">
+            <span class="badge badge-rust">isCobol</span>
+            <span class="badge badge-muted">Suporte N4</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <h4>GVGTEC Soluções em Informática</h4>
+          <div class="period">Fev/2012 – Jul/2012 · São Paulo — SP</div>
+          <p>Conversão de sistemas legados para interface gráfica utilizando Flexus COBOL. Treinamento e desenvolvimento.</p>
+          <div class="badge-row" style="margin-top:8px">
+            <span class="badge badge-rust">COBOL</span>
+            <span class="badge badge-rust">Migração</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <h4>Experiências Anteriores (1984–2012)</h4>
+          <div class="period">COBOL · Alta e Baixa Plataforma</div>
+          <p>Unesp Jaboticabal (estágio), Cultura Systems, Usinas de Açúcar e Álcool, Tecplast, Editora FTD, Construtora Imola. Projetos de downsize, fabricantes SID e UNISYS.</p>
+          <div class="badge-row" style="margin-top:8px">
+            <span class="badge badge-muted">Mainframe</span>
+            <span class="badge badge-muted">Delphi</span>
+            <span class="badge badge-muted">COBOL</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LINGUAGENS -->
+    <div id="tab-linguagens" class="tab-panel">
+      <div class="section-title">Linguagens de Programação</div>
+      <div class="lang-grid">
+        <div class="lang-item"><span class="lang-dot" style="background:var(--gold)"></span>MF COBOL</div>
+        <div class="lang-item"><span class="lang-dot" style="background:var(--gold)"></span>IsCobol</div>
+        <div class="lang-item"><span class="lang-dot" style="background:var(--gold)"></span>COBOL NetExpress</div>
+        <div class="lang-item"><span class="lang-dot" style="background:var(--gold)"></span>Flexus COBOL SP2</div>
+        <div class="lang-item"><span class="lang-dot" style="background:var(--accent-blue)"></span>Python</div>
+        <div class="lang-item"><span class="lang-dot" style="background:var(--accent-blue)"></span>Delphi</div>
+        <div class="lang-item"><span class="lang-dot" style="background:var(--accent-blue)"></span>Java</div>
+        <div class="lang-item"><span class="lang-dot" style="background:var(--accent-blue)"></span>JavaScript</div>
+        <div class="lang-item"><span class="lang-dot" style="background:var(--accent-blue)"></span>PHP</div>
+        <div class="lang-item"><span class="lang-dot" style="background:var(--accent-blue)"></span>SQL</div>
+        <div class="lang-item"><span class="lang-dot" style="background:var(--accent-rust)"></span>C# .NET (básico)</div>
+        <div class="lang-item"><span class="lang-dot" style="background:var(--accent-rust)"></span>AJAX</div>
+      </div>
+      <div class="section-title" style="margin-top:32px">Idiomas</div>
+      <div class="lang-grid">
+        <div class="lang-item"><span class="lang-dot" style="background:var(--muted)"></span>Português (nativo)</div>
+        <div class="lang-item"><span class="lang-dot" style="background:var(--muted)"></span>Espanhol (básico)</div>
+        <div class="lang-item"><span class="lang-dot" style="background:var(--muted)"></span>Inglês (básico)</div>
+      </div>
+    </div>
+
+    <!-- FORMAÇÃO -->
+    <div id="tab-formacao" class="tab-panel">
+      <div class="section-title">Formação Acadêmica</div>
+      <div class="edu-item">
+        <span class="edu-year">2025</span>
+        <div><h4>Pós-Graduação em Musicoterapia</h4><p>AVA Faveni</p></div>
+      </div>
+      <div class="edu-item">
+        <span class="edu-year">2024</span>
+        <div><h4>Pós-Graduação em Psico-Oncologia</h4><p>Unyleya</p></div>
+      </div>
+      <div class="edu-item">
+        <span class="edu-year">2004</span>
+        <div><h4>Graduação em Música Popular</h4><p>Unaerp — Universidade de Ribeirão Preto</p></div>
+      </div>
+      <div class="edu-item">
+        <span class="edu-year">1987</span>
+        <div><h4>Processamento de Dados</h4><p>Instituto Moura Lacerda</p></div>
+      </div>
+      <div class="section-title" style="margin-top:32px">Extensão &amp; Certificações TI</div>
+      <div class="badge-row">
+        <span class="badge badge-sage">Gerência de Projetos PMI – SENAC (2013)</span>
+        <span class="badge badge-sage">MBA Marketing Agronegócio – USP/UFSCar (2017)</span>
+        <span class="badge badge-blue">Python &amp; UX – Udemy (2025)</span>
+        <span class="badge badge-blue">Agile Trends (2020)</span>
+        <span class="badge badge-blue">Técnicas de GP – FGV (2010)</span>
+        <span class="badge badge-blue">Linux Fundamentals in Cloud (2013)</span>
+        <span class="badge badge-rust">Mainframe – Tech Treinos (2009)</span>
+        <span class="badge badge-rust">IsCobol – Brivi (2012)</span>
+        <span class="badge badge-rust">Drones DJI (2017)</span>
+        <span class="badge badge-muted">SQL Server 2008 – Impacta (2009)</span>
+        <span class="badge badge-muted">SAP Business ONE (em curso)</span>
+        <span class="badge badge-muted">C# Básico – Bradesco (2009)</span>
+      </div>
+    </div>
+
+    <!-- BANCO DE DADOS -->
+    <div id="tab-banco" class="tab-panel">
+      <div class="section-title">Banco de Dados</div>
+      <div class="db-grid">
+        <div class="info-card">
+          <h3>Modelagem</h3>
+          <p>Modelagem conceitual de dados, normalização e design de schemas. Ferramentas: Erwin, DBDesigner, Dia.</p>
+          <div class="badge-row">
+            <span class="badge badge-sage">Conceitual</span>
+            <span class="badge badge-sage">Erwin</span>
+            <span class="badge badge-sage">DBDesigner</span>
+          </div>
+        </div>
+        <div class="info-card">
+          <h3>SGBDs Relacionais</h3>
+          <p>Oracle, MySQL, SQL Server 2008, Access, InterBase, PostgreSQL e outros ambientes relacionais.</p>
+          <div class="badge-row">
+            <span class="badge badge-blue">Oracle</span>
+            <span class="badge badge-blue">MySQL</span>
+            <span class="badge badge-blue">PostgreSQL</span>
+            <span class="badge badge-blue">SQL Server</span>
+          </div>
+        </div>
+        <div class="info-card">
+          <h3>SGBDs Especializados</h3>
+          <p>DBMaker e C-treeAce — bancos de dados utilizados principalmente em ambientes COBOL legados e sistemas ERP.</p>
+          <div class="badge-row">
+            <span class="badge badge-rust">DBMaker</span>
+            <span class="badge badge-rust">C-treeAce</span>
+          </div>
+        </div>
+        <div class="info-card">
+          <h3>Conhecimentos Complementares</h3>
+          <p>BI, ERP, BPM, CRM e InfoSecurity. Experiência prática em projetos de integração e análise de dados corporativos.</p>
+          <div class="badge-row">
+            <span class="badge badge-muted">BI</span>
+            <span class="badge badge-muted">ERP</span>
+            <span class="badge badge-muted">BPM</span>
+            <span class="badge badge-muted">CRM</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  Urbano Rocha Filho &middot; Playbook CV &middot; 2025
+</footer>
+
+<script>
+(function() {
+  var nav = document.getElementById('tabsNav');
+  if (!nav) return;
+  var buttons = nav.querySelectorAll('.tab-btn');
+  buttons.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var target = btn.getAttribute('data-tab');
+      buttons.forEach(function(b) { b.classList.remove('active'); });
+      document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+      btn.classList.add('active');
+      var panel = document.getElementById('tab-' + target);
+      if (panel) panel.classList.add('active');
+    });
+  });
+})();
+</script>
+</body>
+</html>
